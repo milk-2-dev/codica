@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import CityList from './features/CityList/CityList'
+import City from './features/City/City'
+import MainLayout from './layout/MainLayout'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path='/' element={<CityList />} />
+        <Route path=':id' element={<City />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
